@@ -1,4 +1,7 @@
-const criaNovaLinha = {
+const criaNovaLinha = (nome,email) => {
+
+    const linhaNovoCliente = document.createElement ('tr');
+
 
     const conteudo =  `
         <td class="td" data-td>${nome}</td>
@@ -11,7 +14,15 @@ const criaNovaLinha = {
         </td>  
         `
 
+
+        linhaNovoCliente.innerHTML = conteudo;
+        return linhaNovoCliente;
+
 }
+
+const tabela = document.querySelector ('[data-tabela]');
+
+
 
 
 
@@ -29,7 +40,10 @@ http.onload = () => {
     
     const data = http.response 
 
-    console.log (data)
+   data.forEach(elemento => {
+    tabela.appendChild (criaNovaLinha (elemento.nome,elemento.email));
+  
+});
 
 
 
