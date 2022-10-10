@@ -38,9 +38,10 @@ http.send ();
 
 http.onload = () => {
     
-    const data = http.response 
+    const data = JSON.parse(http.response) ;
 
    data.forEach(elemento => {
+
     tabela.appendChild (criaNovaLinha (elemento.nome,elemento.email));
   
 });
