@@ -36,17 +36,41 @@ http.open ('GET', 'http://localhost:3000/profile');
 http.send ();
 
 
-http.onload = () => {
-    
-    const data = JSON.parse(http.response) ;
-
-   data.forEach(elemento => {
-
-    tabela.appendChild (criaNovaLinha (elemento.nome,elemento.email));
+ const listaClientes = () => {
   
+    const promise = new Promise((resolve, reject) => {
+         
+        http.onload = () => {
+    
+            if (http.status > 400 ) {
+                reject (JSON.parse(http.response));
+            } else {
+                resolve (JSON.parse(http.response));
+            }
+        
+        
+        
+        
+        }
+
+
+    })
+
+
+
+   return promise
+
+ }
+
+
+
+
+
+ const data = JSON.parse(http.response) ;
+        
+ data.forEach(elemento => {
+
+  tabela.appendChild (criaNovaLinha (elemento.nome,elemento.email));
+
 });
 
-
-
-
-}
