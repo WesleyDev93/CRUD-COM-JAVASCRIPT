@@ -1,5 +1,4 @@
-
- export const listaClientes = () => {
+ const listaClientes = () => {
 
   return fetch (`http://localhost:3000/profile`)
   .then (resposta => {
@@ -9,7 +8,30 @@
  };
 
 
+const criaCliente = (nome,email) => {
+    return fetch (`http://localhost:3000/profile`), {
+        method: 'POST',
+        Headers: {
+            'content-Type': 'application/json'
+        },
+        body: JSON.stringify ({ nome: nome,
+                                email: email})
 
+        
+    }
+    .then (resposta => {
+        return resposta.body
+    })
+};
+
+
+
+
+
+export const clienteService = {
+    listaClientes,
+    criaCliente
+}
 
 
 

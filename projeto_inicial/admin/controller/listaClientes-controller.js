@@ -1,4 +1,4 @@
-import {listaClientes} from "../admin/service/cliente-service.js";
+import {clienteService} from "../service/cliente-service.js";
 
 const criaNovaLinha = (nome,email) => {
 
@@ -29,7 +29,7 @@ const tabela = document.querySelector ('[data-tabela]');
 
 
 
-listaClientes ()
+ clienteService.listaClientes ()
 .then (data => {
     data.forEach(elemento => {
 
