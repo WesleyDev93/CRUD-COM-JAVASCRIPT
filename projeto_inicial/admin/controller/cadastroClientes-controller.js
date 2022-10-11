@@ -15,7 +15,7 @@ formulario.addEventListener ('submit', (evento) => {
 
      clienteService.criaCliente (nome,email)
      .then ( () => {
-        window.location.href = '../telas/cadastro_conluido.html'
+        window.location.href = '../telas/cadastro_concluido.html'
      }) 
 
      
